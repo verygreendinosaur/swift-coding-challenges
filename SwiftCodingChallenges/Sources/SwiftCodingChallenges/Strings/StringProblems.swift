@@ -22,4 +22,21 @@ struct StringProblems {
     return text == reversed
   }
   
+  /// Challenge 3. Return true if the two strings have the same characters. Case sensitive.
+  func haveSameCharacters(_ stringA: String, _ stringB: String) -> Bool {
+    stringA.sorted() == stringB.sorted()
+  }
+  
+  /// Challenge 5. Return the count of the provided character in the given string. Case sensitive.
+  func countOf(char: Character, in text: String) -> Int {
+    var count = 0
+    for character in text {
+      if character == char {
+        count += 1
+      }
+    }
+    
+    return count
+  }
+  
 }

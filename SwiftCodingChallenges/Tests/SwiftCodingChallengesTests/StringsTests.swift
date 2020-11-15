@@ -40,6 +40,21 @@ final class StringsTests: XCTestCase {
   
   func test_challenge003_haveSameChars() {
     
+    // When same characters
+    XCTAssertTrue(StringProblems().haveSameCharacters("abca", "abca"))
+    XCTAssertTrue(StringProblems().haveSameCharacters("abca", "cbaa"))
+    XCTAssertTrue(StringProblems().haveSameCharacters("b1 a2", "1a 2b"))
+
+    // When not same characters
+    XCTAssertFalse(StringProblems().haveSameCharacters("abca", "abcc"))
+    XCTAssertFalse(StringProblems().haveSameCharacters("abca", "abc"))
+    XCTAssertFalse(StringProblems().haveSameCharacters("b1 a2", "1a 2b "))
+  }
+  
+  func test_challenge005_countOf() {
+    
+    XCTAssertEqual(StringProblems().countOf(char: "S", in: "Spanish steps"), 1)
+    XCTAssertEqual(StringProblems().countOf(char: "s", in: "Spanish steps"), 3)
   }
   
 }
