@@ -39,4 +39,40 @@ struct StringProblems {
     return count
   }
   
+  /// Challenge 8. Return true if one string is a rotation of the other. Case sensitive.
+  func isRotation(text: String, rotated: String) -> Bool {
+    guard text.count == rotated.count else { return false }
+    return (text + text).contains(rotated)
+  }
+  
+  /// Challenge 9. Return true if the text is an English pangram. Case insensitive.
+  func isPangram(_ text: String) -> Bool {
+    var characters = Set<String>()
+    
+    for char in text {
+      if char.isLetter {
+        characters.insert(char.lowercased())
+      }
+    }
+    
+    return characters.count == 26
+  }
+  
+  /// Challenge 10. Return a count of vowels and consonants in the string.
+  func vowelsAndConsonants(in text: String) -> (vowels: Int, consonants: Int) {
+    let vowels: Set<Character> = ["a","e","i","o","u"]
+    var vowelCount = 0
+    var consonantCount = 0
+    
+    for char in text.lowercased() where char.isLetter {
+      if vowels.contains(char) {
+        vowelCount += 1
+      } else {
+        consonantCount += 1
+      }
+    }
+    
+    return (vowelCount, consonantCount)
+  }
+  
 }
